@@ -14,7 +14,7 @@ jQuery(document).ready(function($) {
 					event.preventDefault();
 				}
 
-				var _request = $.ajax({
+				_request = $.ajax({
 					url: window.clco_domain + '/wp-admin/admin-ajax.php',
 					type: 'POST',
 					data: {
