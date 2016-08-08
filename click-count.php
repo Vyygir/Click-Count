@@ -33,7 +33,7 @@ function clco_create_global_js_variables() {
 
 function clco_count() {
 	$id = filter_input(INPUT_POST, 'id');
-	$total = ($v = get_post_meta($id, 'clco_clicks', true)) ? $v : '0';
+	$total = clco_get_count($id);
 	
 	update_post_meta($id, 'clco_clicks', ($total + 1));
 
@@ -42,4 +42,8 @@ function clco_count() {
 
 	/* kill the script to prevent a false return value */
 	exit;
+}
+
+function clco_get_count($id) {
+	return ($v = get_post_meta($id, 'clco_clicks', true)) ? $v : '0';
 }
